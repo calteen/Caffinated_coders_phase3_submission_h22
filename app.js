@@ -22,9 +22,7 @@ app.listen(port,()=>{
     console.log(`Listening to port ${port}`);
 });
 
-app.get('/jobs', (req,res)=>{
-    res.render('jobSearch');
-});
+
 
 
 app.get('/certificate', (req,res)=>{
@@ -65,9 +63,7 @@ app.get('/helpline', (req,res)=>{
     res.render('html/helpline.ejs');
 });
 
-app.get('/job2', (req,res)=>{
-    res.render('html/job2.ejs');
-});
+
 
 app.get('/login', (req,res)=>{
     res.render('html/login.ejs');
@@ -143,9 +139,9 @@ app.get('/helpline/PMR-cell', (req,res)=>{
 app.get('/job_other', (req,res)=>{
     res.render('html/job_other.ejs',);
 });
-app.get('/job1', (req,res)=>{
+app.get('/jobs', (req,res)=>{
     res.render('html/job1.ejs', {data: data.jobs});
 });
-app.get('/jobs', (req,res)=>{
+app.get('/job2', (req,res)=>{
     res.render('html/jobs.ejs', {data: data.jobs});
 });
