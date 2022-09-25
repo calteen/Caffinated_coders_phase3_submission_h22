@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queens Site</title>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- aos css -->
+
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font awesome -->
+   <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+     <!-- Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav id="go-to-top" class="navbar navbar-expand-lg selectDisable">
+    <a class="navbar-brand" href="/">
+        Queens Site
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item navlink-border">
+                <a class="nav-link px-4" href="/courses"><i class="fa-solid fa-graduation-cap"></i> Learn Skill</a>
+            </li>
+            <li class="nav-item navlink-border">
+                <div class="dropdown show">
+                    <a class="nav-link px-4 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-landmark-flag"></i> Financial Help
+                    </a>
+                    
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/scholarship">Scholarships</a>
+                        <a class="dropdown-item" href="/gov-scheme">Government Schemes</a>
+                        <a class="dropdown-item" href="/loan">Loan Facilities</a>
+                        <a class="dropdown-item" href="/loancalc">Loan Calculator</a>
+                    </div>
+                </div>
+                
+            </li>
+            <li class="nav-item navlink-border">
+                <div class="dropdown show">
+                    <a class="nav-link px-4 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-sharp fa-solid fa-user-doctor"></i> Find Jobs
+                    </a>
+                    
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/job2">Our Portal</a>
+                        <a class="dropdown-item" href="/jobs">Other Sites</a>
+                    </div>
+                </div>
+                
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link px-4" href="/login"><button class="btn login-btn">Login</button></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-4" href="/helpline"><button class="btn login-btn"><i class="fa-solid fa-phone"></i> Helpline</button></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+    <section id="loan_calc">
+        <div class="container">
+            <div class="container my-5">
+                <div id="app">
+                  <div class="row mb-5">
+                    <h5 class="col-12 mb-4">How much capital are you looking for?</h5>
+                    <div class="col-12">
+                      <div class="row align-items-center mb-4">
+                        <div class="col-12 col-sm-4">
+                          <div class="fg">
+                            <select name="currency" id="currency" onchange="calculator.setCurrency(event)">
+                                <option value="CHF">INR</option>
+                                <option value="EUR">EUR</option>
+                            </select>
+                            <div id="amount">
+                              
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-8">
+                          <div class="length range__slider">
+                            <input 
+                                   class="slider" 
+                                   name="amount"
+                                   type="range" 
+                                   min="20000" 
+                                   max="1000000" 
+                                   step="20000" 
+                                   value="20000"
+                                   oninput="calculator.setAmount(event)" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <h5 class="col-12">Over what payback period?</h5>
+                  </div>
+                  
+                  <div class="row mb-5">
+                    <div class="col-12">
+                        <div class="length range__slider">
+                            <input 
+                                   class="slider" 
+                                   name="period"
+                                   type="range" 
+                                   min="12" 
+                                   max="60" 
+                                   step="6"
+                                   value="12"
+                                   oninput="calculator.setPeriod(event)" />
+                          
+                          </div>
+                        <div id="period" class="text-center color-accent">
+                          
+                        </div>
+                    </div>
+                  </div>
+                  
+                  <div class="row mb-4">
+                    <h5 class="col-12">
+                      Assumed risk rating?
+                    </h5>
+                  </div>
+                  
+                   <div id="levels" class="row mb-4">
+                    </div>
+                  
+                  <div class="row risk-info mb-5">
+                    <div class="col-2 text-center">LOW</div>
+                    <div class="col-8">
+                      <div class="arrow-line mt-2">
+                        <div class="arrow-top"></div>
+                      </div>
+                    </div>
+                    <div class="col-2 text-center">HIGH</div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-12 col-md-7 text-center">
+                      <div class="report">
+                        <h5>
+                          Indicative monthly cost
+                        </h5>
+                        <h2 id="total" class="color-accent strong"></h2>
+                        <div class="row info">
+                          <div id="nominal" class="col-12 text-center">
+                           
+                          </div>
+              
+                        </div>
+                      </div>
+                    </div>
+                
+                  </div>
+                  
+                </div>
+              </div>
+        </div>
+        
+    
+    </section>
+
+    
+</body>
+<style>
+  :root {
+    --color-brand: #eb672e;
+    --color-bg: #f5f5f5;
+    --color-accent: #3aabb9;
+    --color-border: #707070;
+    --color-neutral: #cbcbcb;
+    --field-color: rgba(255, 255, 255, 0.08);
+    --field-height: 65px;
+    --field-border-radius: 8px;
+    --range-handle-color: rgb(255, 255, 255);
+    --range-handle-color-hover: rgb(212, 212, 212);
+    --range-handle-size: 20px;
+    --range-track-color: rgba(255, 255, 255, 0.314);
+    --range-track-height: 4px;
+    --range-label-width: 60px;
+  }
+  
+  html {
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    font-size: 1rem;
+    color: var(--color-border);
+    background-color: var(--color-bg);
+  }
+  
+  h5 {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  select,
+  #amount {
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: center;
+    background: transparent;
+    border: 3px solid var(--color-border);
+  }
+  
+  select {
+    color: var(--color-border);
+    padding: 9px 25px 9px 10px;
+    border-radius: 10px 0 0 10px;
+    background-image: url("data:image/svg+xml;utf8,<svg height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: 0.3s all ease-in;
+  }
+  select:hover {
+    cursor: pointer;
+    box-shadow: inset 0 50px 0 0 var(--color-neutral);
+  }
+  select:focus {
+    color: black;
+    box-shadow: inset 0 50px 0 0 var(--color-accent);
+    outline: none;
+  }
+  
+  #amount {
+    width: 100%;
+    font-size: 1.4rem;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    padding: 5px 20px;
+    color: var(--color-accent);
+    transition: 0.3s all ease-in;
+  }
+  #amount:hover {
+    color: white;
+    box-shadow: inset 300px 0 0 0 var(--color-accent);
+  }
+  
+  .fg {
+    display: flex;
+  }
+  
+  .range__slider {
+    position: relative;
+    width: 100%;
+    height: calc(var(--field-height) - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--field-color);
+    border-radius: var(--field-border-radius);
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: var(--range-track-height);
+    box-shadow: 1px 2px 0 0 rgba(255, 255, 255, 0.5);
+    border: 0;
+    border-radius: 5px;
+    background: var(--color-neutral);
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: var(--range-handle-size);
+    height: var(--range-handle-size);
+    border-radius: 50%;
+    background: var(--color-accent);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: all 0.15s ease-in-out;
+  }
+  .slider::-webkit-slider-thumb:hover {
+    background: var(--color-accent);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    transform: scale(1.2);
+  }
+  .slider::-moz-range-thumb {
+    width: var(--range-handle-size);
+    height: var(--range-handle-size);
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-accent);
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+  }
+  .slider::-moz-range-thumb:hover {
+    background: var(--color-accent);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    transform: scale(1.2);
+  }
+  
+  .color-accent {
+    color: var(--color-accent);
+  }
+  
+  .strong {
+    font-weight: 800;
+  }
+  
+  .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 2rem 1rem;
+    background-color: white;
+    border-radius: 1rem;
+    transform: scale(1);
+    transition: all 0.3s ease-in;
+  }
+  .rating:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--color-brand);
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  .rating.selected {
+    color: white;
+    background-color: var(--color-border);
+  }
+  
+  .arrow-line {
+    position: relative;
+    height: 1px;
+    background-color: var(--color-neutral);
+  }
+  .arrow-line .arrow-top {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-top: 1px solid var(--color-neutral);
+    border-right: 1px solid var(--color-neutral);
+    transform: rotate(45deg);
+  }
+  
+  .risk-info {
+    color: var(--color-neutral);
+    font-size: 0.8rem;
+  }
+  
+  .report {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+  }
+  .report .info {
+    font-size: 0.8rem;
+    color: #b7b7b7;
+  }
+  
+  .apply {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem;
+    background: transparent;
+    border: 10px solid white;
+    border-radius: 1rem;
+    color: white;
+    font-weight: 800;
+  }
+  .apply .info {
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 0.8rem;
+    z-index: 2;
+  }
+  .apply .wave {
+    width: 600px;
+    height: 400px;
+    opacity: 0.6;
+    background-color: var(--color-accent);
+    border-radius: 40%;
+    position: absolute;
+    top: -270px;
+    left: -150px;
+    z-index: -1;
+    animation: spin 16s linear infinite;
+  }
+  .apply .wave:nth-child(2) {
+    top: -265px;
+    animation-duration: 20s;
+  }
+  .apply .wave:nth-child(3) {
+    top: -260px;
+    animation-duration: 24s;
+  }
+  .apply:hover {
+    color: white;
+    text-decoration: none;
+  }
+  .apply:hover .wave {
+    animation-duration: 4s;
+  }
+  .apply:hover .wave:nth-child(2) {
+    animation-duration: 6s;
+  }
+  .apply:hover .wave:nth-child(3) {
+    animation-duration: 5s;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<script src="loan.js"></script>
+</html>
