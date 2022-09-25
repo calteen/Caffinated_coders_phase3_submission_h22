@@ -140,6 +140,12 @@ app.get('/helpline/North-East-cell', (req,res)=>{
 app.get('/helpline/PMR-cell', (req,res)=>{
     res.render('helpline/PMR-cell.ejs');
 });
-app.get('/job3', (req,res)=>{
-    res.render('html/job3.ejs', {data: data.jobs});
+app.get('/job_other', (req,res)=>{
+    res.render('html/job_other.ejs',);
+});
+app.get('/job1', (req,res)=>{
+    res.render('html/job1.ejs', {data: data.jobs});
+});
+app.get('/jobs', (req,res)=>{
+    res.render('html/jobs.ejs', {data: data.jobs});
 });
